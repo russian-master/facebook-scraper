@@ -555,4 +555,5 @@ def use_persistent_session(email: str, password: str, cookies_file_path=DEFAULT_
 
 # Disable logging by default
 logger = logging.getLogger(__name__)
-logger.addHandler(logging.NullHandler())
+logger.setLevel(logging.DEBUG)
+# logger.addHandler(logging.NullHandler())
