@@ -42,6 +42,7 @@ from . import exceptions
 
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 
 class FacebookScraper:
@@ -921,7 +922,8 @@ class FacebookScraper:
                 if response.html.find("h1", containing="We suspended your account"):
                     raise exceptions.AccountDisabled("Your Account Has Been Disabled")
             if title:
-                logger.debug("PAGE TITLE: " + title.text)
+                logger.debug(f"PAGE HTML: {response.html}")
+                logger.debug(f"PAGE TITLE: {title.text}")
                 if title.text.lower() in not_found_titles:
                     raise exceptions.NotFound(title.text)
                 elif title.text.lower() == "error":
