@@ -42,7 +42,7 @@ from . import exceptions
 
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
+#logger.setLevel(logging.DEBUG)
 
 
 class FacebookScraper:
@@ -924,6 +924,8 @@ class FacebookScraper:
             if title:
                 logger.debug(f"PAGE HTML: {response.html}")
                 logger.debug(f"PAGE TITLE: {title.text}")
+                logger.debug(f"PAGE URL: {response.url}")
+                
                 if title.text.lower() in not_found_titles:
                     raise exceptions.NotFound(title.text)
                 elif title.text.lower() == "error":

@@ -16,7 +16,7 @@ from . import exceptions
 
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
+#logger.setLevel(logging.DEBUG)
 
 
 def iter_hashtag_pages(hashtag: str, request_fn: RequestFunction, **kwargs) -> Iterator[Page]:
